@@ -8,6 +8,7 @@
         public DateTime RentDate { get; set; }
         public DateTime ReturnDate { get; set; }
         public decimal Fine { get; set; }
-        public Customer Customer { get; set; }
+        public Customer Customers { get; set; }
+        public Cars Cars { get; set; }
     }
 }
