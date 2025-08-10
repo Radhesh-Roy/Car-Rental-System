@@ -1,0 +1,51 @@
+﻿@model Cars
+
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9 col-sm-12">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center py-4">
+                    <h2 class="mb-0">Add Cars</h2>
+                </div>
+                <div class="card-body p-4 p-md-5">
+                    <form asp-controller="Cars" asp-action="Edit" method="post">
+                        <div class="mb-3">
+                            <label for="brand" class="form-label fw-bold">Brand</label>
+                            <input asp-for="Brand" type="text" class="form-control form-control-lg" id="brand" placeholder="Enter Car Brand name" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="model" class="form-label fw-bold">Model</label>
+                            <input asp-for="Model" type="text" class="form-control form-control-lg" id="model" placeholder="Enter Car Model" >
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="numberPlate" class="form-label fw-bold">numberPlate</label>
+                            <input asp-for="NumberPlate" type="text" class="form-control form-control-lg" id="numberPlate" placeholder="Enter Car number" >
+
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="RentPerday" class="form-label fw-bold">RentPerday</label>
+                            <input asp-for="RentPerDay" type="number" class="form-control form-control-lg" id="RentPerday" placeholder="Enter Car Rent Per Day" >
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="isAvailable" class="form-label fw-bold">IsAvailable</label>
+                            <input asp-for="IsAvailable" type="checkbox" id="isAvailable">
+
+                        </div>
+
+
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
