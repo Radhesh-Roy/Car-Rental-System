@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace CarRentalSystem.Controllers
 {
     public class CarsController : Controller
-    { 
+    {
         private readonly ICarRepository Context;
 
         public CarsController(ICarRepository context)
@@ -14,11 +14,11 @@ namespace CarRentalSystem.Controllers
             Context = context;
         }
 
-            public IActionResult Index()
+        public IActionResult Index()
         {
-            var data= Context.GetAllData();
+            var data = Context.GetAllData();
             return View(data);
-           
+
         }
 
         [HttpGet]
@@ -29,23 +29,20 @@ namespace CarRentalSystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(Cars cars) {
+        public IActionResult Create(Cars cars)
+        {
 
-           
-           Context.Add(cars);
-           return RedirectToAction("Index");
-         
+
+            Context.Add(cars);
+            return RedirectToAction("Index");
+
         }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var data= Context.GetId(id);
-            if(data!= null)
-            {
-                return NotFound();
-              
-            }
+            var data = Context.GetId(id);
+           
             return View(data);
 
         }
@@ -55,24 +52,33 @@ namespace CarRentalSystem.Controllers
 
         public IActionResult Edit(Cars cars)
         {
-            var data =Context.GetId(cars.Id);
-            if (data == null) { 
-            
-            return View(null);
-            
-            }
-           
-                data.Brand = cars.Brand;
-                data.Model = cars.Model;
-                data.NumberPlate = cars.NumberPlate;
-                data.RentPerDay = cars.RentPerDay;
-                data.IsAvailable = cars.IsAvailable;
+            var data = Context.GetId(cars.Id);
+            if (data == null)
+            {
 
-                Context.Update(data);
-                return RedirectToAction("Index");
-            
+                return View(null);
+
+            }
+
+            data.Brand = cars.Brand;
+            data.Model = cars.Model;
+            data.NumberPlate = cars.NumberPlate;
+            data.RentPerDay = cars.RentPerDay;
+            data.IsAvailable = cars.IsAvailable;
+
+            Context.Update(data);
+            return RedirectToAction("Index");
+
         }
 
-        
+        [HttpPost]
+
+        public IActionResult Delete(int id)
+        {
+          var data= Context.Delete(id);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

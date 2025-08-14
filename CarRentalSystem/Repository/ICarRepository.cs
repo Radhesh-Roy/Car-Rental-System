@@ -8,7 +8,7 @@ namespace CarRentalSystem.Repository
         Cars GetId(int id);
         void Add(Cars car);
         void Update(Cars car);
-        void Delete(int id);
+        string Delete(int id);
 
     }
 }
