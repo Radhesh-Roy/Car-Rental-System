@@ -24,8 +24,6 @@ namespace CarRentalSystem.Repository
             var data = _context.Set<Cars>().Find(id);
             if (data == null)
             {
-
-                
                 return "";
             }
             _context.Set<Cars>().Remove(data);

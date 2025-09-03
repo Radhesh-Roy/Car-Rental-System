@@ -78,7 +78,5 @@ namespace CarRentalSystem.Controllers
           var data= Context.Delete(id);
             return RedirectToAction("Index");
         }
-
-
     }
 }
